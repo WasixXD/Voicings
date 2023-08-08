@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voicings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex w-full h-screen flex-col place-content-center content-center justify-center items-center">
+   
+    <div class="box   self-center flex flex-row bg-blue w-full items-center justify-center">
+        <div class="main-chord">
+            <h1 class=" chord text-9xl">C</h1>
+        </div>
+        <div class="extensions ">
+            <div class="first"><h1 class="ex1 text-6xl">9</h1></div>
+            <div class="second flex flex-row items-end"><h1 class="ex2 text-6xl">7</h1> <span style="visibility: hidden;" class="minor text-4xl">M</span></div>
+        </div>
+    </div>
+   
+    
+
+    <script>
+        let chords = ["A", "B", "C", "D", "E", "F", "G", "Db", "Eb", "Gb", "Ab", "Bb"]
+        let extensions1 = ["9", "13"]
+        let extensions2 = ["7"]
+        let tmp = [1,2,3]
+
+
+        function selectOne() {
+            return this[Math.floor(Math.random() * this.length)]
+        }
+
+        Array.prototype.selectOne = selectOne
+
+        chords.selectOne()
+        
+        let chord = document.querySelector(".chord")
+        let ex1 = document.querySelector(".ex1")
+        let ex2 = document.querySelector(".ex2")
+        let sevenMinor = document.querySelector("span")
+
+        let interval = setInterval(() => {
+            chord.textContent = chords.selectOne()
+            ex1.textContent = extensions1.selectOne()
+            ex2.textContent = extensions2.selectOne()
+            if(Math.random() > 0.67) {
+                sevenMinor.style.visibility = "visible"
+            }
+            
+        },4000)
+     
+    </script>
+</body>
+</html>
