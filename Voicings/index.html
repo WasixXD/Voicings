@@ -24,7 +24,7 @@
         let chords = ["A", "B", "C", "D", "E", "F", "G", "Db", "Eb", "Gb", "Ab", "Bb"]
         let extensions1 = ["9", "13"]
         let extensions2 = ["7"]
-        let tmp = [1,2,3]
+        
 
 
         function selectOne() {
@@ -33,7 +33,7 @@
 
         Array.prototype.selectOne = selectOne
 
-        chords.selectOne()
+       
         
         let chord = document.querySelector(".chord")
         let ex1 = document.querySelector(".ex1")
@@ -44,7 +44,7 @@
             chord.textContent = chords.selectOne()
             ex1.textContent = extensions1.selectOne()
             ex2.textContent = extensions2.selectOne()
-            if(Math.random() > 0.67) {
+            if(Math.random() > 0.67 && ex1.textContent != "13") {
                 sevenMinor.style.visibility = "visible"
             }
             
